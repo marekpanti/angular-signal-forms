@@ -1,0 +1,163 @@
+/* Form Container */
+form {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: #333333;
+}
+
+/* Individual Form Fields */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+/* Inputs and Textareas */
+.form-field input[type='text'],
+.form-field input[type='email'],
+.form-field input[type='number'] {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background-color: #f8fafc;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Checkbox Variant */
+.form-field.checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.form-field.checkbox input {
+  width: 1.1rem;
+  height: 1.1rem;
+  cursor: pointer;
+}
+
+/* Money List Fieldset Section */
+.money-list-section {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  background-color: #fdfdfd;
+}
+
+.money-list-section legend {
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0 0.5rem;
+  color: #1e293b;
+}
+
+/* Dynamic Money Item Row */
+.money-item-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.money-item-row:last-of-type {
+  border-bottom: none;
+}
+
+/* Messages */
+.error-message {
+  font-size: 0.8rem;
+  color: #dc2626;
+  font-weight: 500;
+  margin-top: 0.1rem;
+  display: block;
+}
+
+.empty-message {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-style: italic;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* Submit Button */
+button[type='submit'] {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 0.5rem;
+}
+
+button[type='submit']:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+/* Disabled State via Signals State Mapping */
+button[type='submit']:disabled {
+  background-color: #cbd5e1;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Visual Hint for Invalid Fields using Angular's native form classes */
+input.ng-invalid.ng-touched {
+  border-color: #f87171;
+  background-color: #fef2f2;
+}
+
+.btn {
+  padding: 1rem;
+  border-radius: 16px;
+}
+
+.jsonOutput {
+  max-width: 960px;
+  margin: 0 auto;
+  display: block;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background-color: #1e1e1e; /* Dark editor background */
+  color: #9cdcfe; /* Soft blue for standard text */
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #2d2d2d;
+  overflow-x: auto; /* Prevents long JSON lines from breaking layout */
+  white-space: pre-wrap; /* Preserves formatting and wraps long lines */
+  word-break: break-all;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,52 @@
+<form>
+  <h3>Angular Signal Form</h3>
+  <div class="form-field">
+    <label for="fullName">Full Name</label>
+    <input
+      id="fullName"
+      type="text"
+      [formField]="loginForm.fullName"
+      placeholder="Enter your full name"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="email">Email Address</label>
+    <input id="email" type="email" [formField]="loginForm.email" placeholder="Enter your email" />
+  </div>
+
+  <div class="form-field checkbox">
+    <label>
+      <input type="checkbox" [formField]="loginForm.news" />
+      Subscribe to newsletter
+    </label>
+  </div>
+
+  <fieldset class="money-list-section">
+    <legend>Money List</legend>
+
+    @for (item of loginForm.moneyList; let index = $index; track $index) {
+      <form>
+        <div class="money-item-row">
+          <div class="form-field">
+            <label [for]="'title-' + $index">Item Title</label>
+            <input [id]="'title-' + $index" type="text" [formField]="item.title" />
+          </div>
+
+          <div class="form-field">
+            <label [for]="'price-' + $index">Price</label>
+            <input [id]="'price-' + $index" type="number" [formField]="item.price" />
+          </div>
+        </div>
+      </form>
+    } @empty {
+      <p class="empty-message">No items added yet.</p>
+    }
+  </fieldset>
+
+  <button (click)="addMoneyRow()" class="btn">Add Row</button>
+  <strong>Total Price:</strong> {{ totalPrice()}}
+  <strong>Valid:</strong> {{ loginForm().valid() }}
+</form>
+
+<div class="jsonOutput">{{ loginModel() | json }}</div>
