@@ -5,19 +5,19 @@
     <input
       id="fullName"
       type="text"
-      [formField]="loginForm.fullName"
+      [formField]="moneyForm.fullName"
       placeholder="Enter your full name"
     />
   </div>
 
   <div class="form-field">
     <label for="email">Email Address</label>
-    <input id="email" type="email" [formField]="loginForm.email" placeholder="Enter your email" />
+    <input id="email" type="email" [formField]="moneyForm.email" placeholder="Enter your email" />
   </div>
 
   <div class="form-field checkbox">
     <label>
-      <input type="checkbox" [formField]="loginForm.news" />
+      <input type="checkbox" [formField]="moneyForm.news" />
       Subscribe to newsletter
     </label>
   </div>
@@ -25,7 +25,7 @@
   <fieldset class="money-list-section">
     <legend>Money List</legend>
 
-    @for (item of loginForm.moneyList; let index = $index; track $index) {
+    @for (item of moneyForm.moneyList; let index = $index; track $index) {
       <form>
         <div class="money-item-row">
           <div class="form-field">
@@ -46,7 +46,7 @@
 
   <button (click)="addMoneyRow()" class="btn">Add Row</button>
   <strong>Total Price:</strong> {{ totalPrice()}}
-  <strong>Valid:</strong> {{ loginForm().valid() }}
+  <strong>Valid:</strong> {{ moneyForm().valid() }}
 </form>
 
-<div class="jsonOutput">{{ loginModel() | json }}</div>
+<div class="jsonOutput">{{ moneyModel() | json }}</div>

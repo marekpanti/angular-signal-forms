@@ -2,7 +2,7 @@ import { JsonPipe } from '@angular/common';
 import { Component, computed, signal } from '@angular/core';
 import { applyEach, form, maxLength, required, FormField } from '@angular/forms/signals';
 
-interface LoginData {
+interface MoneyForm {
   fullName: string;
   email: string;
   news: boolean;
@@ -20,7 +20,7 @@ interface LoginData {
   styleUrl: './form.css',
 })
 export class Form {
-  loginModel = signal<LoginData>({
+  moneyModel = signal<MoneyForm>({
     fullName: '',
     email: '',
     news: false,
@@ -28,10 +28,10 @@ export class Form {
   });
 
   totalPrice = computed(() => {
-    return this.loginModel().moneyList.reduce((acc, item) => acc + item.price, 0);
+    return this.moneyModel().moneyList.reduce((acc, item) => acc + item.price, 0);
   })
 
-  loginForm = form(this.loginModel, (schemaPath) => {
+  moneyForm = form(this.moneyModel, (schemaPath) => {
     required(schemaPath.fullName);
     required(schemaPath.email);
     maxLength(schemaPath.fullName, 40);
@@ -43,7 +43,7 @@ export class Form {
   });
 
   addMoneyRow() {
-    this.loginModel.update((model) => ({
+    this.moneyModel.update((model) => ({
       ...model,
       moneyList: [
         ...model.moneyList,
@@ -57,7 +57,7 @@ export class Form {
   }
 
   removeMoneyRow(id: string) {
-    this.loginModel.update((model) => {
+    this.moneyModel.update((model) => {
       model.moneyList = model.moneyList.filter((item) => item.id !== id);
       return model;
     });
